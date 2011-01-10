@@ -1,0 +1,9 @@
+E:\Project Github\krutomer\krutomer\krutomer\bin\Debug\krutomer.exe
+E:\Project Github\krutomer\krutomer\krutomer\bin\Debug\krutomer.pdb
+E:\Project Github\krutomer\krutomer\krutomer\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\Project Github\krutomer\krutomer\krutomer\obj\x86\Debug\krutomer.Form1.resources
+E:\Project Github\krutomer\krutomer\krutomer\obj\x86\Debug\krutomer.Properties.Resources.resources
+E:\Project Github\krutomer\krutomer\krutomer\obj\x86\Debug\GenerateResource-ResGen.read.1.tlog
+E:\Project Github\krutomer\krutomer\krutomer\obj\x86\Debug\GenerateResource-ResGen.write.1.tlog
+E:\Project Github\krutomer\krutomer\krutomer\obj\x86\Debug\krutomer.exe
+E:\Project Github\krutomer\krutomer\krutomer\obj\x86\Debug\krutomer.pdb
