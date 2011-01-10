@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "krutomer", "krutomer.csproj", "{6240A104-1F13-4C9A-B7C8-B4AB49A25311}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "krutomer", "krutomer.csproj", "{82CC0DA1-1519-4DD8-B321-5675F04C8ACE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6240A104-1F13-4C9A-B7C8-B4AB49A25311}.Debug|x86.ActiveCfg = Debug|x86
-		{6240A104-1F13-4C9A-B7C8-B4AB49A25311}.Debug|x86.Build.0 = Debug|x86
-		{6240A104-1F13-4C9A-B7C8-B4AB49A25311}.Release|x86.ActiveCfg = Release|x86
-		{6240A104-1F13-4C9A-B7C8-B4AB49A25311}.Release|x86.Build.0 = Release|x86
+		{82CC0DA1-1519-4DD8-B321-5675F04C8ACE}.Debug|x86.ActiveCfg = Debug|x86
+		{82CC0DA1-1519-4DD8-B321-5675F04C8ACE}.Debug|x86.Build.0 = Debug|x86
+		{82CC0DA1-1519-4DD8-B321-5675F04C8ACE}.Release|x86.ActiveCfg = Release|x86
+		{82CC0DA1-1519-4DD8-B321-5675F04C8ACE}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
