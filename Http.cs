@@ -6,6 +6,7 @@ using System.Net;
 using System.IO;
 using System.Windows.Forms;
 using System.Threading;
+using System.Drawing;
 
 namespace Http
 {
@@ -18,16 +19,37 @@ namespace Http
         private string reffer = ""; // будет хранить reffer
         private bool allowautoredirect = true; // делать редерект по запросам?
         private CookieContainer cookie = new CookieContainer(); // будет хранить кукисы
-        private string postData = null;
+        // строка инициализирует данные для отправки на сервер методом post
+        private string postData;
+
+        // хранится содердимое после выполнения get-запроса
+        private string dataGet;
+        // хранится содердимое после выполнения post-запроса
+        private string dataPost;
 
         private static ManualResetEvent allDone = new ManualResetEvent(false);
-        public Http() { }
 
         public string PostData
         {
             set
             {
                 postData = value;
+            }
+        }
+
+        public string DataGet
+        {
+            get
+            {
+                return dataGet;
+            }
+        }
+
+        public string DataPost
+        {
+            get
+            {
+                return dataPost;
             }
         }
 
@@ -62,9 +84,9 @@ namespace Http
             StreamReader streamreader = new StreamReader(response.GetResponseStream());
 
             string buffer = streamreader.ReadToEnd();
-            if (Message != null)
-                Message(this, buffer);
+            dataPost = buffer;
         }
+
 
         public void Get(string url)
         {
@@ -75,6 +97,7 @@ namespace Http
             request.CookieContainer = cookie;
             request.AllowAutoRedirect = allowautoredirect;
             request.BeginGetResponse(new AsyncCallback(GetCallback), request);
+            allDone.WaitOne();
         }
 
         private void GetCallback(IAsyncResult result)
@@ -82,12 +105,21 @@ namespace Http
             HttpWebRequest req = (HttpWebRequest)result.AsyncState;
             HttpWebResponse response = (HttpWebResponse)req.EndGetResponse(result);
             StreamReader streamreader = new StreamReader(response.GetResponseStream());
-            string buffer = streamreader.ReadToEnd();
-            if (Message != null)
-                Message(this, buffer);
+            dataGet = streamreader.ReadToEnd();
+            allDone.Set();
         }
 
-        public delegate void HttpHandler(object sender, string message);
-        public event HttpHandler Message;
+        public Image GetCaptha(string url)
+        {
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(url);
+            request.UserAgent = useragent;
+            request.Referer = reffer;
+            request.ContentType = "application/x-www-form-urlencoded";
+            request.CookieContainer = cookie;
+            request.AllowAutoRedirect = allowautoredirect;
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            Stream streamCaptha = response.GetResponseStream();
+            return Image.FromStream(streamCaptha);
+        }
     }
 }
