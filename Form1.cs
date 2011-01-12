@@ -31,7 +31,12 @@ namespace krutomer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            krutomer.Register();
+            krutomer.ParseCaptha();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            krutomer.Register(textBox1.Text);
         }
     }
 }

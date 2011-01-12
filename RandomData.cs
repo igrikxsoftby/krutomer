@@ -14,27 +14,48 @@ namespace krutomer
         /// рандомный логи
         /// </summary>
         /// <returns>логин</returns>
-        static string RandomLogin()
+        static public string RandomLogin()
         {
-            return "login";
+            Random rand = new Random();
+            int n = rand.Next(10, 15);
+            string login = "";
+            for (int i = 0; i < n; i++)
+            {
+                login += ((char)rand.Next(97, 122)).ToString();
+            }
+            return login;
         }
 
         /// <summary>
         /// рандомный пароль
         /// </summary>
         /// <returns>пароль</returns>
-        static string RandomPassword()
+        static public string RandomPassword()
         {
-            return "password";
+            Random rand = new Random();
+            string password = "";
+            for (int i = 0; i < 7; i++)
+            {
+                password += ((char)rand.Next(97, 122)).ToString();
+            }
+            return password;
         }
 
         /// <summary>
         /// рандомная почта
         /// </summary>
         /// <returns>почта</returns>
-        static string RandomEmail()
+        static public string RandomEmail()
         {
-            return "email";
+            string[] domen = new string[] { "@mail.ru", "@inbox.ru", "@bk.ru", "@list.ru", "@rambler.ru", "@yandex.ru" };
+            Random rand = new Random();
+            int n = rand.Next(9, 16);
+            string email = "";
+            for (int i = 0; i < n; i++)
+            {
+                email += ((char)rand.Next(97, 122)).ToString();
+            }
+            return email+domen[rand.Next(0,5)];
         }
     }
 }
